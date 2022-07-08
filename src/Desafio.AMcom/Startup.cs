@@ -31,6 +31,16 @@ namespace Desafio.AMcom
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Desafio.AMcom", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Total",
+                    builder =>
+                        builder
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +54,10 @@ namespace Desafio.AMcom
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio.AMcom v1"));
 
             app.UseRouting();
+
+            app.UseHttpsRedirection();
+
+            app.UseCors("Total");
 
             app.UseAuthorization();
 
