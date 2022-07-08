@@ -7,11 +7,14 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY [".", "Desafio.AMcom/"]
-RUN dotnet build "Desafio.AMcom/Desafio.AMcom.csproj" -c Release -o /app/build
+COPY ["src/Desafio.AMcom/Desafio.AMcom.csproj", "src/Desafio.AMcom/"]
+RUN dotnet restore "src/Desafio.AMcom/Desafio.AMcom.csproj"
+COPY . .
+WORKDIR "/src/src/Desafio.AMcom"
+RUN dotnet build "Desafio.AMcom.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Desafio.AMcom/Desafio.AMcom.csproj" -c Release -o /app/publish
+RUN dotnet publish "Desafio.AMcom.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app

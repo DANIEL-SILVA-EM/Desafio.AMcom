@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>03380619-e501-4b6d-9f93-b26d00ce5568</ProjectGuid>
+    <ProjectGuid>be0eea42-40f8-49c2-90d5-6ac5d23b4872</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>desafio.amcom</DockerServiceName>
