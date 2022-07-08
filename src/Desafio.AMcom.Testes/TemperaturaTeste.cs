@@ -1,5 +1,4 @@
-using Desafio.AMcom.Controllers;
-using System;
+using Desafio.AMcom.Entity;
 using Xunit;
 
 namespace Desafio.AMcom.Testes

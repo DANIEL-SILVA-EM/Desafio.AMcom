@@ -1,4 +1,4 @@
-﻿namespace Desafio.AMcom
+﻿namespace Desafio.AMcom.Model
 {
     public class TemperaturaModel
     {

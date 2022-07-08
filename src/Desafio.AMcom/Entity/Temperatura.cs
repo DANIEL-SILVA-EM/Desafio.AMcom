@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 
-namespace Desafio.AMcom.Controllers
+namespace Desafio.AMcom.Entity
 {
     public struct Temperatura : IEquatable<Temperatura>
     {

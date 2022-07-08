@@ -1,21 +1,21 @@
-﻿using Desafio.AMcom.Controllers;
+﻿using Desafio.AMcom.Entity;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.Json;
 
-namespace Desafio.AMcom
+namespace Desafio.AMcom.Utilidades
 {
     public static class UtilidadesArquivo
     {
-        const string FILE_TEMPERATURA = $"temperatura.txt";
+        const string FILE_TEMPERATURA = "temperatura.txt";
         public static void EscrevaTemperaturaTxt(Temperatura temperatura)
         {
             using var file = File.AppendText(FILE_TEMPERATURA);
             file.WriteLine(temperatura.ToString());
         }
 
-        const string FILE_PAISES = $"paises.json";
+        const string FILE_PAISES = "paises.json";
         public static IEnumerable<Pais> LeiaTemperaturaTxt()
         {
             var serializeOptions = new JsonSerializerOptions
