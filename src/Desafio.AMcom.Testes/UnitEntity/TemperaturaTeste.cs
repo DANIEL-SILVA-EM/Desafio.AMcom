@@ -1,7 +1,7 @@
 using Desafio.AMcom.Entity;
 using Xunit;
 
-namespace Desafio.AMcom.Testes
+namespace Desafio.AMcom.Testes.UnitEntity
 {
     public class TemperaturaTeste
     {
@@ -19,7 +19,7 @@ namespace Desafio.AMcom.Testes
             Assert.Equal(valorCelsius, temperatura.ValorCelsius, 4);
             Assert.Equal(valorKelvin, temperatura.ValorKelvin, 3);
         }
-        
+
         [Theory]
         [InlineData(0)]
         [InlineData(34.5)]

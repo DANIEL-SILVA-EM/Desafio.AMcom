@@ -1,15 +1,11 @@
+using Desafio.AMcom.Services;
+using Desafio.AMcom.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Desafio.AMcom
 {
@@ -25,6 +21,8 @@ namespace Desafio.AMcom
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IReqresUsersService>(_ => new ReqresUsersService(urlbase: Configuration.GetValue<string>("DefaultUrlService")));
+
             services.AddMemoryCache();
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -50,12 +48,12 @@ namespace Desafio.AMcom
             {
                 app.UseDeveloperExceptionPage();
             }
+           
             app.UseSwagger();
+
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio.AMcom v1"));
 
-            app.UseRouting();
-
-            app.UseHttpsRedirection();
+            app.UseRouting();           
 
             app.UseCors("Total");
 
